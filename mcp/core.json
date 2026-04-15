@@ -1,0 +1,44 @@
+{
+  "description": "MCP-серверы для AI-assisted разработки. API-ключи не хранятся здесь — запрашиваются при установке.",
+  "mcpServers": {
+    "firecrawl-mcp": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": ""
+      },
+      "required": true,
+      "description": "Скрапинг веб-страниц, скачивание документации, анализ сайтов. Нужен API-ключ: firecrawl.dev (есть бесплатный тир)."
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      },
+      "required": false,
+      "description": "Работа с GitHub: issues, PR, файлы репозитория, поиск. Нужен Personal Access Token: github.com → Settings → Developer settings → Tokens."
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "required": true,
+      "description": "Актуальная документация библиотек и фреймворков прямо в контексте агента. API-ключ не нужен."
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"],
+      "required": false,
+      "description": "Браузерная автоматизация: тестирование UI, скриншоты, взаимодействие со страницами. API-ключ не нужен."
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": ""
+      },
+      "required": false,
+      "description": "Прямые запросы к PostgreSQL. Нужна строка подключения: postgresql://user:password@host:port/database. Использовать только для dev/staging, не для production."
+    }
+  }
+}
